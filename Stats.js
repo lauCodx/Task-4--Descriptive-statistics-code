@@ -1,6 +1,6 @@
 class centralTendency {
-    constructor(values){
-        this.x = values;
+    constructor(numbers){
+        this.x = numbers;
     }
 
     mean(){
@@ -13,9 +13,37 @@ class centralTendency {
         const sortedData = this.x.sort() // arranges the numbers in accending order using the sort() function.
         const getMiddleNumber = Math.floor(this.x.length / 2); //floor() rounds up decimal number to a whole number.
 
-        return sortedData.length % 2=== 1 ? sortedData[getMiddleNumber] : (sortedData[getMiddleNumber -1] + sortedData[getMiddleNumber]) / 2;
+        return sortedData.length % 2 === 1 ? sortedData[getMiddleNumber] : (sortedData[getMiddleNumber -1] + sortedData[getMiddleNumber]) / 2;
         
     }
+
+    mode() {
+        
+    }
+}
+
+class measuresOfDispersion extends centralTendency {
+    // constructor (numbers){
+    //     this.data = numbers;
+    //     // this.centralT = new centralTendency();
+        
+    // }
+
+    range(){
+        const calcRange = this.x[this.x.length - 1] - this.x[0];
+        return calcRange;
+
+    }
+
+    meanDeviation() {
+        
+        // const meanValue = centralT.mean();
+        const meanValue = this.mean()
+        return this.x.reduce((x1, x2) => x1 + Math.abs(x2 - meanValue), 0 ) / this.x.length;
+
+    }
+
+
 }
 
  
@@ -26,9 +54,12 @@ class centralTendency {
 
 
 
+// INSTANTIATING CLASSES............................
+const stats1 = new centralTendency([1,2,3,4,5,6,7,8,9]);
+const stats2 = new measuresOfDispersion([1,2,3,4,5,6,7,8,9,10]);
 
 // MY CONSOLES
-const stats1 = new centralTendency([1,2,3,4,5,6,7,8,9]);
-
 console.log(stats1.mean());
 console.log(stats1.median());
+console.log(stats2.range());
+console.log(stats2.meanDeviation());
