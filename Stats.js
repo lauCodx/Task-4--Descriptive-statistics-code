@@ -11,14 +11,14 @@ class centralTendency {
     // Median is all about finding the middle number.
     median (){
         const sortedData = this.x.sort() // arranges the numbers in accending order using the sort() function.
-        const getMiddleNumber = Math.floor(this.x.length / 2);
+        const getMiddleNumber = Math.floor(this.x.length / 2); //floor() rounds up decimal number to a whole number.
 
         return sortedData.length % 2=== 1 ? sortedData[getMiddleNumber] : (sortedData[getMiddleNumber -1] + sortedData[getMiddleNumber]) / 2;
         
     }
 }
 
-
+ 
 
 
 
