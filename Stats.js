@@ -43,6 +43,15 @@ class measuresOfDispersion extends centralTendency {
 
     }
 
+    variation(){
+        const meanValue =this.mean();
+        return this.x.reduce((x1, x2) => x1 + Math.pow(x2 - meanValue, 2), 0 ) / this.x.length;
+    }
+
+    standardDeviation(){
+        return Math.sqrt(this.variation())
+    }
+
 
 }
 
@@ -63,3 +72,5 @@ console.log(stats1.mean());
 console.log(stats1.median());
 console.log(stats2.range());
 console.log(stats2.meanDeviation());
+console.log(stats2.variation());
+console.log(stats2.standardDeviation());
